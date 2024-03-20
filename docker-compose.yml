@@ -1,0 +1,52 @@
+version: "3.7"
+
+networks:
+  oracle_network:
+    driver: bridge
+
+services:
+  oracle:
+    image: public.ecr.aws/skip-mev/oracleops-sidecar:latest
+    entrypoint:
+      [
+        "oracle",
+        "--oracle-config-path",
+        "/etc/slinky/default_config/oracle.json",
+        "--market-config-path",
+        "/etc/slinky/default_config/market.json",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8080",
+        "--pprof-port",
+        "6060",
+        "--run-pprof",
+        "true",
+      ]
+    ports:
+      - "8080:8080" # main oracle port
+      - "8002:8002" # oracle metrics port
+      - "6060:6060" # pprof port
+    networks:
+      - oracle_network
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./contrib/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - oracle_network
+
+  blockchain:
+    image: public.ecr.aws/skip-mev/oracleops-chain:latest
+    ports:
+      - "26656:26656"
+      - "26657:26657"
+      - "1317:1317" # used to query the blockchain
+      - "7171:7171"
+      - "26655:26655"
+      - "8001:8001" # app side oracle metrics
+    networks:
+      - oracle_network
