@@ -26,6 +26,7 @@ docker-compose logs -f <service-name>
 ### Exposed services
 
 - Prometheus: [http://localhost:9090](http://localhost:9090)
-- Grafana: [http://localhost:3000](http://localhost:3000)
+  - Accessible in Grafana through http://prometheus:9090
+- Grafana: [http://localhost:3000](http://localhost:3000) (the credentials are admin / admin)
 - Oracle sidecar metrics: [http://localhost:8002/metrics](http://localhost:8002/metrics)
 - Oracle sidecar API: [http://localhost:8080/api](http://localhost:8080)

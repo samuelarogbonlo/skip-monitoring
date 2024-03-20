@@ -50,3 +50,10 @@ services:
       - "8001:8001" # app side oracle metrics
     networks:
       - oracle_network
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    ports:
+     - '3000:3000'
+    networks:
+      - oracle_network
