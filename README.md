@@ -56,11 +56,22 @@ docker-compose logs -f <service-name>
 
 ## Dashboard and Visualizations
 On the dashboard, there are three major metric sections and they are listed thus:
-- Provider API Metrics: This includes the "total" number of provider responses by status per hour and by ID per hour. For the both panels, there are just two panel status which is `success` and `unknown_err` regardless of if the dashboard is set to `success` or `failure`. In summary, while the `status by hour` provides introspection into how often providers are successfully updating their data, the `ID per hour` provides introspection into how often each price feed is being updated successfully.
 
-- Base Provider Metrics: This has two major panels as well and while one gives the "average" number of responses per provider and status per hour, the latter the average number of responses per ID per hour.
+- _Provider API Metrics:_ This includes the "total" number of provider responses by status per hour and by ID per hour. For the both panels, there are just two panel status which is `success` and `unknown_err` regardless of if the dashboard is set to `success` or `failure`. In summary, the two panels are listed below:
+     - _Provider Responses By Status Per Hour:_ This provides introspection into how often providers are successfully updating their data.
+     - _Provider Responses By ID Per Hour:_ This provides introspection into how often each price feed is being updated successfully.
 
-- Prices & Charts: This part of the dashboard has six panels and they hav different functions to the user. They include oracle aggregate price chart, oracle provicer price chart, Oracle aggregate price, Oracle provider price, oracle provider last updated time for each currency pair in seconds and finally the rate of oracle ticks per hour.
+- _Base Provider Metrics:_ This has two major panels as well and to modify and compre data, you need to make changes to the main `provider`, `status` and `ID` variables. The panels are listed thus:
+     - Average Number of Responses Per Provider And Status Per Hour.
+     - Average Number of Responses Per ID Per Hour.
+
+- _Prices & Charts:_ This part of the dashboard has six panels and they hav different functions to the user. They include the following:
+     - _Oracle Aggregate Price Chart:_ This shows the oracle aggregate price chart over time
+     - _Oracle Provicer Price Chart:_ This displays the oracle provider price chart over a certain timeframe.
+     - _Oracle Aggregate Price:_ This displays the Oracle aggregate price over time.
+     - _Oracle Provider Price:_ This displays the oracle provider price per time.
+     - _Oracle Provider Last Updated Time For Each Currency Pair In Seconds:_ This is the time taken for oracle provider API to update currency pair data.
+     - _Rate of Oracle Ticks Per Hour:_ This displays the rate of total ticks per hour in the setup runtime.
 
 Generally, stakeholders would find the dashboard very helpful as it does highlight different price variances and peculiarities per time. We even went forward to even setup rate of Oracle ticks to monitor the spikes in the infrastructure so we can rightly be alerted when things get our of hand. furthermore, alerting is very crucial to having visibility status of the entire stack and we have build alerting rules that could still be expanded as the stack expands - this also promites solid service discovery. The rules are listed thus:
 
@@ -72,6 +83,9 @@ Generally, stakeholders would find the dashboard very helpful as it does highlig
 - Price Data Anomalies
 - Service Unavailability
 - Spike In Query Volume
+
+> **_Note_**
+- Be aware that all the descriptoon for the alerts are added in the rules file [here](https://github.com/samuelarogbonlo/oracleops-take-home/blob/main/contrib/prometheus/rules.yml). And any other neccessary alerts can definitely be added as we move forward.
 
 ## Engaging with the Monitoring Solution
 In engaging with the dashboard and monitoring setup, you should be aware on some major details shown as follows:
@@ -86,7 +100,5 @@ In engaging with the dashboard and monitoring setup, you should be aware on some
 ## Collaborators
 - [YOUR NAME HERE] - Feel free to contribute to the codebase by resolving any open issues, refactoring, adding new features, writing test cases or any other way to make the project better and helpful to the community. Please feel free to send pull requests.
 
-
 ## License
-
 The MIT License (http://www.opensource.org/licenses/mit-license.php)
