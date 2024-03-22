@@ -40,11 +40,14 @@ The monitoring solution is built on Prometheus for metrics collection, Grafana f
 git clone https://yourrepository.com/monitoring-solution.git
 cd monitoring-solution
 ```
-- Configure Services: Navigate to each service's configuration directory (prometheus, grafana, alertmanager) and review the configuration files. Update the configurations as needed to match your environment.
-- Launch the Stack: This will start all the services and monitoring setup as well.
+- **Configure Services:** Navigate to each service's configuration directory (prometheus, grafana, alertmanager) and review the configuration files. Update the configurations as needed to match your environment.
+
+- **Launch the Stack:** This will start all the services and monitoring setup as well.
+
 ```bash
 docker-compose up -d
 ```
+
 - Verify Installation: Ensure all services are running correctly. You can access Grafana at [http://localhost:3000](http://localhost:3000) and Prometheus at [http://localhost:9090](http://localhost:9090).
 
 > **_Note_**
@@ -57,21 +60,21 @@ docker-compose logs -f <service-name>
 ## Dashboard and Visualizations
 On the dashboard, there are three major metric sections and they are listed thus:
 
-- _Provider API Metrics:_ This includes the "total" number of provider responses by status per hour and by ID per hour. For the both panels, there are just two panel status which is `success` and `unknown_err` regardless of if the dashboard is set to `success` or `failure`. In summary, the two panels are listed below:
-     - _Provider Responses By Status Per Hour:_ This provides introspection into how often providers are successfully updating their data.
-     - _Provider Responses By ID Per Hour:_ This provides introspection into how often each price feed is being updated successfully.
+- **_Provider API Metrics:_ ** This includes the "total" number of provider responses by status per hour and by ID per hour. For the both panels, there are just two panel status which is `success` and `unknown_err` regardless of if the dashboard is set to `success` or `failure`. In summary, the two panels are listed below:
+     - **_Provider Responses By Status Per Hour:_** This provides introspection into how often providers are successfully updating their data.
+     - **_Provider Responses By ID Per Hour:_** This provides introspection into how often each price feed is being updated successfully.
 
-- _Base Provider Metrics:_ This has two major panels as well and to modify and compre data, you need to make changes to the main `provider`, `status` and `ID` variables. The panels are listed thus:
+- **_Base Provider Metrics:_** This has two major panels as well and to modify and compre data, you need to make changes to the main `provider`, `status` and `ID` variables. The panels are listed thus:
      - Average Number of Responses Per Provider And Status Per Hour.
      - Average Number of Responses Per ID Per Hour.
 
-- _Prices & Charts:_ This part of the dashboard has six panels and they hav different functions to the user. They include the following:
-     - _Oracle Aggregate Price Chart:_ This shows the oracle aggregate price chart over time
-     - _Oracle Provicer Price Chart:_ This displays the oracle provider price chart over a certain timeframe.
-     - _Oracle Aggregate Price:_ This displays the Oracle aggregate price over time.
-     - _Oracle Provider Price:_ This displays the oracle provider price per time.
-     - _Oracle Provider Last Updated Time For Each Currency Pair In Seconds:_ This is the time taken for oracle provider API to update currency pair data.
-     - _Rate of Oracle Ticks Per Hour:_ This displays the rate of total ticks per hour in the setup runtime.
+- **_Prices & Charts:_** This part of the dashboard has six panels and they hav different functions to the user. They include the following:
+     - **_Oracle Aggregate Price Chart:_** This shows the oracle aggregate price chart over time
+     - **_Oracle Provicer Price Chart:_** This displays the oracle provider price chart over a certain timeframe.
+     - **_Oracle Aggregate Price:_** This displays the Oracle aggregate price over time.
+     - **_Oracle Provider Price:_** This displays the oracle provider price per time.
+     - **_Oracle Provider Last Updated Time For Each Currency Pair In Seconds:_** This is the time taken for oracle provider API to update currency pair data.
+     - **_Rate of Oracle Ticks Per Hour:_** This displays the rate of total ticks per hour in the setup runtime.
 
 Generally, stakeholders would find the dashboard very helpful as it does highlight different price variances and peculiarities per time. We even went forward to even setup rate of Oracle ticks to monitor the spikes in the infrastructure so we can rightly be alerted when things get our of hand. furthermore, alerting is very crucial to having visibility status of the entire stack and we have build alerting rules that could still be expanded as the stack expands - this also promites solid service discovery. The rules are listed thus:
 
@@ -87,12 +90,7 @@ Generally, stakeholders would find the dashboard very helpful as it does highlig
 > **_Note_**
 - Be aware that all the descriptoon for the alerts are added in the rules file [here](https://github.com/samuelarogbonlo/oracleops-take-home/blob/main/contrib/prometheus/rules.yml). And any other neccessary alerts can definitely be added as we move forward.
 
-## Engaging with the Monitoring Solution
-In engaging with the dashboard and monitoring setup, you should be aware on some major details shown as follows:
-
-- Viewing Dashboards:
-- Responding to Alerts:
-- Customizing Alerts and Dashboards:
+- In engaging with the dashboard and monitoring setup, you should be aware that all you have to do is change the different variables to fit your prefrence of display and everything works as an out-of-the-box solution.
 
 ## Author
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo)
