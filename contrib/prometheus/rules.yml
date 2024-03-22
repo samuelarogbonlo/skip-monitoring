@@ -8,7 +8,7 @@ groups:
           severity: warning
         annotations:
           summary: "Elevated error rate detected"
-          description: "An elevated error rate {{ $value }} has been detected, indicating potential issues with the Provider."
+          description: "An elevated error rate {{ $value }} has been detected, indicating potential issues with {{ $labels.provider }}."
 
       - alert: HighErrorRatesCritical
         expr: rate(oracle_provider_status_responses{status="failure"}[5m]) > 3
@@ -17,7 +17,7 @@ groups:
           severity: critical
         annotations:
           summary: "High error rate detected"
-          description: "A high error rate has been detected, indicating severe issues with one or more data providers."
+          description: "An elevated error rate {{ $value }} has been detected, indicating potential issues with {{ $labels.provider }}."
 
 
       - alert: SignificantResponseTimeIncreasesCritical
