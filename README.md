@@ -44,7 +44,7 @@ cd monitoring-solution
 ```bash
 docker-compose up -d
 ```
-- Verify Installation: Ensure all services are running correctly. You can access Grafana at (http://localhost:3000)[http://localhost:3000] and Prometheus at (http://localhost:9090)[http://localhost:9090].
+- Verify Installation: Ensure all services are running correctly. You can access Grafana at [http://localhost:3000](http://localhost:3000) and Prometheus at [http://localhost:9090](http://localhost:9090).
 
 > **_Note_**
 - Furthermore, you can inspect the logs of any service in the stack by running:
