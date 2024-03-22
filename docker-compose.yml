@@ -56,8 +56,12 @@ services:
     restart: unless-stopped
     ports:
      - '3000:3000'
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning
+      - ./grafana/dashboards/:/etc/grafana/provisioning/dashboard-definitions 
     networks:
       - oracle_network
+      
   alertmanager:
     image: prom/alertmanager
     volumes:
