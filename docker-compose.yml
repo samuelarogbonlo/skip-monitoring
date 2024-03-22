@@ -57,15 +57,15 @@ services:
     ports:
      - '3000:3000'
     volumes:
-      - ./grafana/provisioning/:/etc/grafana/provisioning
-      - ./grafana/dashboards/:/etc/grafana/provisioning/dashboard-definitions 
+      - ./contrib//grafana/provisioning/:/etc/grafana/provisioning
+      - ./contrib/grafana/dashboards/:/etc/grafana/provisioning/dashboard-definitions 
     networks:
       - oracle_network
       
   alertmanager:
     image: prom/alertmanager
     volumes:
-      - ./alertmanager:/etc/alertmanager # Mounts the local alertmanager directory to the container
+      - ./contrib/alertmanager:/etc/alertmanager # Mounts the local alertmanager directory to the container
     ports:
       - "9093:9093"
     command:
