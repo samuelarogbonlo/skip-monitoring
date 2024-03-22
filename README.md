@@ -34,13 +34,14 @@ The monitoring solution is built on Prometheus for metrics collection, Grafana f
 - Access to the Slinky instance and related services
 
 ### Installation Steps
-- Clone the Repository
+- Create your personal server on any cloud platform of choice or use your local machine but be aware that the image files are large.
+- Access the created server or use your local machine terminal to clone the Repository by running the following command:
 ```bash
 git clone https://yourrepository.com/monitoring-solution.git
 cd monitoring-solution
 ```
 - Configure Services: Navigate to each service's configuration directory (prometheus, grafana, alertmanager) and review the configuration files. Update the configurations as needed to match your environment.
-- Launch the Stack
+- Launch the Stack: This will start all the services and monitoring setup as well.
 ```bash
 docker-compose up -d
 ```
@@ -54,9 +55,23 @@ docker-compose logs -f <service-name>
 ```
 
 ## Dashboard and Visualizations
-Describe the key Grafana dashboards and visualizations included in the solution, highlighting how stakeholders can use them to monitor service health, performance, and anomalies.
+On the dashboard, there are three major metric sections and they are listed thus:
+- Provider API Metrics: This includes the "total" number of provider responses by status per hour and by ID per hour. For the both panels, there are just two panel status which is `success` and `unknown_err` regardless of if the dashboard is set to `success` or `failure`. In summary, while the `status by hour` provides introspection into how often providers are successfully updating their data, the `ID per hour` provides introspection into how often each price feed is being updated successfully.
 
-Explain how service discovery is configured for Prometheus to automatically detect and monitor new instances of Slinky or related services.
+- Base Provider Metrics: This has two major panels as well and while one gives the "average" number of responses per provider and status per hour, the latter the average number of responses per ID per hour.
+
+- Prices & Charts: This part of the dashboard has six panels and they hav different functions to the user. They include oracle aggregate price chart, oracle provicer price chart, Oracle aggregate price, Oracle provider price, oracle provider last updated time for each currency pair in seconds and finally the rate of oracle ticks per hour.
+
+Generally, stakeholders would find the dashboard very helpful as it does highlight different price variances and peculiarities per time. We even went forward to even setup rate of Oracle ticks to monitor the spikes in the infrastructure so we can rightly be alerted when things get our of hand. furthermore, alerting is very crucial to having visibility status of the entire stack and we have build alerting rules that could still be expanded as the stack expands - this also promites solid service discovery. The rules are listed thus:
+
+- Oracle Service Anomalies
+- High Error Rates Critical
+- Significant Response Time Increases
+- Significant Response Time IncreasesCritical
+- Data Freshness Issues
+- Price Data Anomalies
+- Service Unavailability
+- Spike In Query Volume
 
 ## Engaging with the Monitoring Solution
 In engaging with the dashboard and monitoring setup, you should be aware on some major details shown as follows:
