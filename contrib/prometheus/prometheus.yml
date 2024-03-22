@@ -1,4 +1,7 @@
 # my global config
+rule_files:
+  - "/etc/prometheus/rules.yml"
+
 global:
   scrape_interval: 100ms
   evaluation_interval: 1s
@@ -8,7 +11,16 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: "prometheus"
 
+    # Respect the labels from the targets, override whatever they say
+    honor_labels: true
+
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
       - targets: ["oracle:8002"]
+
+alerting:
+  alertmanagers:
+    - scheme: http
+      static_configs:
+        - targets: ['alertmanager:9093']

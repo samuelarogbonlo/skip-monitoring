@@ -1,0 +1,74 @@
+groups:
+  - name: oracle_service_anomalies
+    rules:
+      - alert: HighErrorRates
+        expr: rate(oracle_provider_status_responses{status="failure"}[5m]) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Elevated error rate detected"
+          description: "An elevated error rate has been detected, indicating potential issues with one or more data providers."
+
+      - alert: HighErrorRatesCritical
+        expr: rate(oracle_provider_status_responses{status="failure"}[5m]) > 0.5
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High error rate detected"
+          description: "A high error rate has been detected, indicating severe issues with one or more data providers."
+
+      - alert: SignificantResponseTimeIncreases
+        expr: histogram_quantile(0.95, rate(oracle_api_response_time_per_provider_bucket[5m])) > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Elevated response time detected"
+          description: "An elevated response time has been detected, which may affect data freshness and overall system performance."
+
+      - alert: SignificantResponseTimeIncreasesCritical
+        expr: histogram_quantile(0.95, rate(oracle_api_response_time_per_provider_bucket[5m])) > 2
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Critical response time increase detected"
+          description: "A critical increase in response time has been detected, indicating significant performance degradation."
+
+      - alert: DataFreshnessIssues
+        expr: time() - oracle_provider_last_updated_id > 300
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Data freshness issue detected"
+          description: "Data has not been updated within the expected interval, indicating potential issues with data retrieval or processing."
+
+      - alert: PriceDataAnomalies
+        expr: stddev_over_time(oracle_provider_price[5m]) > 0.05
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Significant price data anomaly detected"
+          description: "A significant deviation in price data has been detected, indicating potential anomalies that could impact financial decisions."
+
+      - alert: ServiceUnavailability
+        expr: absent(up{job="oracle"} == 1)
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Oracle service unavailability detected"
+          description: "The oracle service or a critical component is not available, indicating a severe operational issue."
+
+      - alert: SpikeInQueryVolume
+        expr: increase(oracle_ticks_total[5m]) > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Spike in query volume detected"
+          description: "An unusual spike in query volume has been detected, which could indicate an issue or unexpected behavior in consuming applications."

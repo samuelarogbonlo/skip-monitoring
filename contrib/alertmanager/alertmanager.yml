@@ -1,0 +1,22 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname', 'priority']
+  group_wait: 10s
+  group_interval: 10m
+  repeat_interval: 1h
+  receiver: "null"
+  routes:
+    - receiver: "slack-notifications"
+      matchers: 
+        - job=~"prometheus"
+
+receivers:
+  - name: "null"
+  - name: 'slack-notifications'
+    slack_configs:
+      - channel: '#random'
+        api_url: 'https://hooks.slack.com/services/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'
+        send_resolved: true
+

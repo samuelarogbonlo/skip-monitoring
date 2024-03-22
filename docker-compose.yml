@@ -36,6 +36,7 @@ services:
       - "9090:9090"
     volumes:
       - ./contrib/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./contrib/prometheus/rules.yml:/etc/prometheus/rules.yml
     networks:
       - oracle_network
 
@@ -57,3 +58,15 @@ services:
      - '3000:3000'
     networks:
       - oracle_network
+  alertmanager:
+    image: prom/alertmanager
+    volumes:
+      - ./alertmanager:/etc/alertmanager # Mounts the local alertmanager directory to the container
+    ports:
+      - "9093:9093"
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/alertmanager'
+    networks:
+      - oracle_network
+    
