@@ -42,6 +42,8 @@ cd monitoring-solution
 ```
 - **Configure Services:** Navigate to each service's configuration directory (prometheus, grafana, alertmanager) and review the configuration files. Update the configurations as needed to match your environment.
 
+- Navigate to `alertmanager.yml` file in the alertmanager directory then update the `channel` with your slack channel name and `api_url` with your slack webhook for that channel.
+
 - **Launch the Stack:** This will start all the services and monitoring setup as well.
 
 ```bash
@@ -49,6 +51,8 @@ docker-compose up -d
 ```
 
 - Verify Installation: Ensure all services are running correctly. You can access Grafana at [http://localhost:3000](http://localhost:3000) and Prometheus at [http://localhost:9090](http://localhost:9090).
+
+- For access, you can use the default username and password as `admin`, but you have a choice of changing the password after the first password usage.
 
 > **_Note_**
 - Furthermore, you can inspect the logs of any service in the stack by running:
