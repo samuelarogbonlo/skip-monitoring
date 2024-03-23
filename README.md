@@ -42,7 +42,7 @@ cd monitoring-solution
 ```
 - **Configure Services:** Navigate to each service's configuration directory (prometheus, grafana, alertmanager) and review the configuration files. Update the configurations as needed to match your environment.
 
-- Navigate to `alertmanager.yml` file in the alertmanager directory then update the `channel` with your slack channel name and `api_url` with your slack webhook for that channel.
+- Navigate to `alertmanager.yml` file in the alertmanager directory then update the `channel` with your slack channel name and `api_url` with your slack webhook for that channel. Check more information on setting up a webhook URL [here](https://api.slack.com/messaging/webhooks)
 
 - **Launch the Stack:** This will start all the services and monitoring setup as well.
 
@@ -97,6 +97,7 @@ Generally, stakeholders would find the dashboard very helpful as it highlights d
 > **_Note_**
 > - Be aware that all the descriptions for the alerts are added in the rules file [here](https://github.com/samuelarogbonlo/oracleops-take-home/blob/main/contrib/prometheus/rules.yml). And any other necessary alerts can be added as we move forward.
 > - In engaging with the dashboard and monitoring setup, you should be aware that all you have to do is change the different variables to fit your preference of display and everything works as an out-of-the-box solution.
+> - Other alert-receiving platforms like Discord and email can be set as well. 
 
 ## Author
 - Samuel Arogbonlo - [GitHub](https://github.com/samuelarogbonlo)
