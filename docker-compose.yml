@@ -57,7 +57,7 @@ services:
     ports:
      - '3000:3000'
     volumes:
-      - ./contrib/grafana:/etc/grafana/provisioning/
+      - ./contrib/grafana/config:/etc/grafana/provisioning/
 
     networks:
       - oracle_network

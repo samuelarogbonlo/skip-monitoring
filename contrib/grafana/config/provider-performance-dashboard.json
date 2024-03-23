@@ -37,7 +37,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the total number of provider responses by status (i.e. success or unknown_err) over the last hour. This provides introspection into how often providers are successfully updating their data.",
       "fieldConfig": {
@@ -94,7 +94,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -114,7 +114,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the number of provider responses by ID (i.e. price feed) and status (i.e. success or unknown_err) over the last hour. This provides introspection into how often each price feed is being updated successfully.",
       "fieldConfig": {
@@ -171,7 +171,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -204,7 +204,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the average number of responses per provider over the last hour. This provides introspection into how often each provider is successfully updating their data.",
       "fieldConfig": {
@@ -254,7 +254,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -274,7 +274,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the average number of responses per ID (i.e. price feed) over the last hour. This provides introspection into how often each price feed is being updated.",
       "fieldConfig": {
@@ -328,7 +328,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -361,7 +361,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the oracle aggregate price chart over time",
       "fieldConfig": {
@@ -445,7 +445,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -465,7 +465,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the oracle provider price chart over time",
       "fieldConfig": {
@@ -544,7 +544,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -564,7 +564,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "Displays Oracle aggregate price over time",
       "fieldConfig": {
@@ -615,7 +615,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -635,7 +635,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "This displays the oracle provider price per time",
       "fieldConfig": {
@@ -686,7 +686,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -706,7 +706,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "Time taken for oracle provider API to update currency pair data",
       "fieldConfig": {
@@ -756,7 +756,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -776,7 +776,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "cdgcazgmhpo8we"
+        "uid": "oracleops_prometheus"
       },
       "description": "Displays rate of oracle ticks per hour",
       "fieldConfig": {
@@ -832,7 +832,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "cdgcazgmhpo8we"
+            "uid": "oracleops_prometheus"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -866,7 +866,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_api_response_status_per_provider,provider)",
         "hide": 0,
@@ -889,15 +889,15 @@
         "current": {
           "selected": false,
           "text": [
-            "All"
+            "btc/usd"
           ],
           "value": [
-            "$__all"
+            "btc/usd"
           ]
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_aggregate_price,pair)",
         "hide": 0,
@@ -929,7 +929,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_api_response_status_per_provider,id)",
         "hide": 0,
@@ -960,7 +960,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_provider_price,decimals)",
         "hide": 0,
@@ -981,7 +981,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": [
             "All"
           ],
@@ -991,7 +991,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_provider_status_responses,status)",
         "hide": 0,
@@ -1023,7 +1023,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_provider_status_responses,code)",
         "hide": 0,
@@ -1054,7 +1054,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
+          "uid": "oracleops_prometheus"
         },
         "definition": "label_values(oracle_provider_status_responses,type)",
         "hide": 0,
@@ -1075,13 +1075,9 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "success",
           "value": "success"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "cdgcazgmhpo8we"
         },
         "definition": "label_values(oracle_api_response_status_per_provider,status)",
         "hide": 0,
@@ -1104,7 +1100,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
