@@ -16,8 +16,8 @@ receivers:
   - name: "null"
   - name: 'slack-notifications'
     slack_configs:
-    - channel: '#skip-testing'
-      api_url: 'https://hooks.slack.com/services/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'
+    - channel: ''
+      api_url: ''
       send_resolved: true
       title: '{{ template "slack.default.title" . }}'
       text: |
