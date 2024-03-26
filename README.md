@@ -62,7 +62,7 @@ docker-compose logs -f <service-name>
 ```
 
 ## Dashboard and Visualizations
-On the dashboard, there are three major metric sections and they are listed thus:
+On the dashboard, there are four major metric sections and they are listed thus:
 - **_Provider API Metrics:_** This includes the "total" number of provider responses by status per hour and by ID per hour. To interact with both panels, you can make changes to **`provider`**, **`Provider API Status`**, and **`id`** variables. In summary, the two panels are listed below:
      - **_Provider Responses By Status Per Hour:_** This provides introspection into how often providers are successfully updating their data.
      - **_Provider Responses By ID Per Hour:_** This provides introspection into how often each price feed is being updated successfully.
@@ -73,14 +73,12 @@ On the dashboard, there are three major metric sections and they are listed thus
 
 - **_Prices & Charts:_** This part of the dashboard has six panels and they have different functions for the user. To interact with these panels, you can make changes to the **`pair`**, **`type`**, **`provider`**, They include the following:
      - **_Oracle Aggregate Price Chart:_** This shows the oracle aggregate price chart over time
-     - **_Oracle Provider Price Chart:_** This displays the oracle provider price chart over a certain timeframe.
+     - **_Oracle Provider Price Chart:_** This displays the Oracle provider price chart over a certain timeframe.
      - **_Oracle Aggregate Price:_** This displays the Oracle aggregate price over time.
      - **_Oracle Provider Price:_** This displays the oracle's provider price per time.
-     - **_Oracle Provider Last Updated Time For Each Currency Pair In Seconds:_** This is the time taken for oracle provider API to update currency pair data.
-     - **_Rate of Oracle Ticks Per Hour:_** This displays the rate of total ticks per hour in the setup runtime.
 
 - **_Miscellaneous:_** This row has two panels. To modify the panels, you'll make changes to the variables; **`id`**, **`provider`**, **`type`**. They include:
-     - **_Oracle Provider Last Updated Time For Each Currency Pair in Seconds:_** Time taken for the oracle provider API to update currency pair data.
+     - **_Oracle Provider Last Updated Time For Each Currency Pair in Seconds:_** Time taken for the Oracle provider API to update currency pair data.
      - **_Rate of Oracle Ticks:_** Displays rate of oracle ticks per hour.
 
 Generally, stakeholders would find the dashboard very helpful as it highlights different price variances and peculiarities per time. We went forward to set up "Rate of Oracle Ticks" to monitor the spikes in the infrastructure so we can rightly be alerted when things get out of hand. Furthermore, alerting is very crucial to having visibility status of the entire stack and we have built alerting rules that could still be expanded as the stack expands - this also promotes solid service discovery. The rules are listed thus:
