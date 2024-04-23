@@ -1,4 +1,4 @@
-## OracleOps Take Home Challenge
+## OracleOps 
 
 ## Monitoring Solution for Slinky Oracle Service
 This document outlines the monitoring solution designed for Slinky, Skip's premium oracle product used by high-performance app chains. The solution includes a metrics dashboard, alerts configuration, and additional features to ensure the reliability and performance of the oracle service.
